@@ -24,5 +24,14 @@ module.exports = {
       name: `images`,
       path: `${__dirname}/src/images`
     }
-  }],
+  },
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`,
+  {
+    resolve: `gatsby-plugin-mdx`,
+    options: {
+      extensions: [`md`, `mdx`]
+    }
+  }, 
+  ],
 }
