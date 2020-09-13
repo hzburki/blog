@@ -1,0 +1,97 @@
+---
+title: NestJS - Getting Started with SequilizeJS
+published: true
+slug: nestjs-sequelize
+date: Sep 7, 2019
+excerpt: A quick tutorial on how to integrate relational databases using SequelizeJS with NestJS.
+tags: #nestjs #sequelizejs #nodejs #webdev
+featureImage: nestjs-sequelize.png
+---
+
+## Preface
+
+> Coming from _Laravel_, which has a myriad of built-in features I started to resent shifting to NodeJS. Setting up error handling, logging, dependency injection, etc. was not what I had in mind. Thankfully I found NestJS, with its out-of-the-box architecture and great documentation I started feeling at home again.
+
+> This is one small step in a long technical journey with NestJS.
+
+SequelizeJS is an ORM that offers connectivity to relational databases like MySQL, PostgreSQL, and MSSQL. For this article, I’m going to use MySQL hosted on [RemoteMySQL](https://remotemysql.com/), but you can use any relational database you like.
+
+## Getting Started
+
+Assuming you have a nest project ready to go. We’ll start by installing the following dependencies.
+
+    npm install --save sequelize sequelize-typescript mysql2
+    npm install --save-dev @types/sequelize
+
+First, we’ll pass the connection details to SequelizeJS. We can do this by creating a database module and provider.
+
+    nest generate module database
+    nest generate provider database/database.providers
+
+This is where we will add our entity models to SequelizeJS. I’m adding models right now (even though they are created yet), but you can do this later.
+
+{% gist https://gist.github.com/hzburki/8c33f9e64fc52611251575aae40eb62b %}
+
+I have imported and added the _user_ model to the _addModels_ function. Now export your database provider so it can be consumed with any module that needs to access the database through SequelizeJS.
+
+{% gist https://gist.github.com/hzburki/3e61f50e0083d32b336ffaeaa0f9b83d %}
+
+## **User Entity Model**
+
+{% gist https://gist.github.com/hzburki/1520a98861bf699442909502dbc1ba15 %}
+
+I’m not going to explain how the code above populates the database table and its attributes. If you’re interested in learning more about SequelizeJS, you can look [here](http://docs.sequelizejs.com/).
+
+Next, we’ll create _user.provider.ts_ which will be used to export the User model so it can be used in different _services_.
+
+{% gist https://gist.github.com/hzburki/4d1a22c3cb2179f850425700c94135b3 %}
+
+The _USER_REPOSITORY_ is stored in a const variable, in a separate file, so it can be used anywhere without being subject to human error.
+
+At this point, we’re done with our database and SequelizeJS configuration. From now on it’s just a matter of importing database and its models and using them 😀.
+
+## Onwards with the Code
+
+Let’s move on and create our user *module, controller and service *with the following command.
+
+    nest generate module user
+    nest generate controller user
+    nest generate service user
+
+These are the files responsible for entertaining recurring database requests. But first we’ll create a Data Transfer Object (DTO), this is especially useful for validating _body_ of the incoming HTTP request or building API documentation with swagger, etc.
+
+{% gist https://gist.github.com/hzburki/e749f55129612453b7738e4b8ecd1172 %}
+
+### User Module
+
+{% gist https://gist.github.com/hzburki/49960c73368caddf5a357b218da03a65 %}
+
+The above code is consolidating all the User code (controller, service, model) into one place, the _user module_ so it can be exported to the _app module_.
+
+Note that the user _controller_ and _service_ have been generated but are empty right at this step. You can opt to populate this file later on.
+
+### User Service
+
+{% gist https://gist.github.com/hzburki/449a1e19afbe97105dcb17d3e1251158 %}
+
+Unlike _user service_ which uses the _“Injectable”_ decorator, the _user provider_ we created to use the _User Model_ is not a part of NestJS, therefore has to be injected manually.
+
+We do this inside the service’s _constructor_ method using the _“Inject”_ decorator.
+
+### User Controller
+
+{% gist https://gist.github.com/hzburki/ebaf46480f7fb4a811cf3502a299b72c %}
+
+The last step is to inject the _user service_ in our _user controller_. The controller exposes our code base to externally accessible API endpoints.
+
+### Folder Structure
+
+![Nest-Sequelize Folder Structure](https://cdn-images-1.medium.com/max/2000/1*vaJB14wJUGp4QGyoTDhc2A.png)
+
+If you’re curious, this is how my folder structure looks like.
+
+The database connection details are in the _database_ folder, easy to maintain and reuse anywhere in the app.
+
+The bulk of the files are in the _user_ folder. You can ignore the _.spec_ files as they are used to host tests that are out of the scope of this article.
+
+The _dto_ folder holds “data transfer objects” for each request. The _index_ file is used to export all *dto-*s.
