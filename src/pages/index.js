@@ -2,8 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-import { Header, Body, Footer } from "../components"
-
 export default function Home({ data }) {
   return (
     <Container>
@@ -22,7 +20,7 @@ export default function Home({ data }) {
           })}
         </ul>
       </Body>
-
+    
       <Footer />
     </Container>
   )
@@ -30,18 +28,34 @@ export default function Home({ data }) {
 
 const Container = styled.div`
   display: grid;
-  height: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "header header header"
-    "body body body"
-    "footer footer footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "header"
+    "body"
+    "footer";
+`
+
+const Header = styled.div`
+  grid-area: "header";
+  border: 1px solid green;
+  height: 300px;
+`
+
+const Body = styled.div`
+  grid-area: "body";
+  border: 1px solid red;
+`
+
+const Footer = styled.div`
+  grid-area: "footer";
+  border: 1px solid blue;
+  height: 100px;
 `
 
 export const AllBlogsQuery = graphql`
   query AllBlogsQuery {
-    allMdx(sort: { fields: frontmatter___date, order: DESC }) {
+    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           frontmatter {
