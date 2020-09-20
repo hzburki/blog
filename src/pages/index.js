@@ -7,23 +7,29 @@ import { Header, Body, Footer } from "../components"
 export default function Home({ data }) {
   return (
     <Container>
-      <Header />
+      <HeaderSection> 
+        <Header />
+      </HeaderSection>
 
-      <Body>
-        <ul>
-          {data.allMdx.edges.map(item => {
-            const { slug, title } = item.node.frontmatter
+      <BodySection>
+        <Body>
+          <ul>
+            {data.allMdx.edges.map(item => {
+              const { slug, title } = item.node.frontmatter
 
-            return (
-              <li key={slug}>
-                <Link to={slug}>{title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-      </Body>
+              return (
+                <li key={slug}>
+                  <Link to={slug}>{title}</Link>
+                </li>
+              )
+            })}
+          </ul>
+        </Body>
+      </BodySection>
 
-      <Footer />
+      <FooterSection>
+        <Footer />
+      </FooterSection>
     </Container>
   )
 }
@@ -37,6 +43,19 @@ const Container = styled.div`
     "header header header"
     "body body body"
     "footer footer footer";
+`
+
+const HeaderSection = styled.section`
+  grid-area: header;
+  padding: 2rem 0;
+`
+
+const BodySection = styled.section`
+  grid-area: body;
+`
+
+const FooterSection = styled.section`
+  grid-area: footer;
 `
 
 export const AllBlogsQuery = graphql`
