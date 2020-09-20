@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     background-color: ${props => props.theme.color.light1}
   }
+  
+  #___gatsby, #gatsby-focus-wrapper {
+    height: 100%;
+  }
 `
 
 export const wrapRootElement = ({ element }) => {
