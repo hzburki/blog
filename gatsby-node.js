@@ -25,7 +25,5 @@ exports.createPages = async function({ graphql, actions }) {
       component: require.resolve("./src/template/single-blog.js"),
       context: { id }
     })
-
-    console.log("slug", slug);
   });
 }

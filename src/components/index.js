@@ -1,4 +1,10 @@
-export * from "./body"
-export * from "./footer"
-export * from "./header"
-export * from "./blog-card"
+// Shared
+export * from "./shared/body"
+export * from "./shared/footer"
+
+// Index
+export * from "./index/header"
+export * from "./index/blog-card"
+
+// Blog
+export * from "./blog/header"

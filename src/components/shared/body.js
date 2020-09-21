@@ -1,8 +1,8 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import { BlogCard } from "./index"
-import { Layout } from "../styled-components"
+import { BlogCard } from "../index"
+import { Layout } from "../../styled-components"
 
 export const Body = () => {
   const data = useStaticQuery(graphql`
