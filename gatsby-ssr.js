@@ -10,8 +10,9 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body, html {
-    font-family: ${props => props.theme.fonts.main};
     height: 100%;
+    font-size: 16px;
+    font-family: ${props => props.theme.fonts.main};
     background-color: ${props => props.theme.color.light1}
   }
   

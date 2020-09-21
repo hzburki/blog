@@ -11,24 +11,29 @@ export const BlogBody = ({ body }) => {
 }
 
 const MarkdownWrapper = styled.div`
-  /* Headings */
   h1 {
     font-size: 34px;
+    margin-bottom: 0.5rem;
   }
   h2 {
     font-size: 32px;
+    margin-bottom: 0.5rem;
   }
   h3 {
     font-size: 30px;
+    margin-bottom: 0.5rem;
   }
   h4 {
     font-size: 28px;
+    margin-bottom: 0.5rem;
   }
   h5 {
     font-size: 26px;
+    margin-bottom: 0.5rem;
   }
   h6 {
     font-size: 24px;
+    margin-bottom: 0.5rem;
   }
   /* Seperator */
   hr {
@@ -38,15 +43,22 @@ const MarkdownWrapper = styled.div`
     border: 0;
     border-radius: 10px;
   }
-  /* Italics */
   em {
     font-style: italic;
   }
   strong {
     font-weight: 700;
   }
+  /* Lists */
+  ul, ol {
+    margin: 1rem 0 1rem 2rem;
+  }
   li {
-    margin-left: 1.5rem;
+    margin: 0.25rem 0;
+
+    p {
+      margin-bottom: 0;
+    }
   }
   a {
     text-decoration: underline;
@@ -61,5 +73,20 @@ const MarkdownWrapper = styled.div`
     -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
     -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
     box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  }
+  p {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 2rem; 
+  }
+  /* Quote */
+  blockquote{
+    border-left: 4px solid darkgray;
+    padding-left: 2rem;
+    margin-bottom: 2rem;
+  }
+  /* Code */
+  pre {
+    margin-bottom: 2rem;
   }
 `
