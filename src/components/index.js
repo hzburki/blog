@@ -7,5 +7,6 @@ export * from "./index/header"
 export * from "./index/blog-card"
 
 // Blog
+export * from "./blog/code"
 export * from "./blog/body"
 export * from "./blog/header"
