@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`
 
   body, html {
     height: 100%;
+    font-size: 16px;
     font-family: ${props => props.theme.fonts.main};
     background-color: ${props => props.theme.colors.light1};
   }
@@ -35,7 +36,7 @@ const components = {
     }
 
     // Rendering a simple 'pre' html element
-    return <pre {...props} />
+    return <pre {...preProps} />
   } 
 }
 

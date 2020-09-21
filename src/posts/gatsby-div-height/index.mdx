@@ -42,7 +42,7 @@ Well the **real solution** is actually still the same, we need to assign a `heig
 
 - Create a new css file and name it `global.css`. I've put it in a separate styles folder in my repo.
 
-```javascript
+```js
 /*
  * Purpose:
  * Assign height: "100%" to
@@ -65,13 +65,13 @@ div[role="group"][tabindex] {
 
 - In the root of your directory, look for `gatsby-browser.js` and import `global.css`.
 
-```javascript
+```js
 import "./src/styles/global.css"
 ```
 
 - I like to start my projects from scratch. This is my take on `Layout` Component.
 
-```javascript
+```js
 <div
   style={{
     height: "100%",

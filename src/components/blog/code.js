@@ -35,12 +35,16 @@ const Pre = styled.pre`
   text-align: left;
   margin: 1em 0;
   padding: 0.5em;
+  border-radius: 10px;
   overflow: scroll;
-`;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+`
 
 const Line = styled.div`
   display: table-row;
-`;
+`
 
 const LineNo = styled.span`
   display: table-cell;
@@ -48,8 +52,8 @@ const LineNo = styled.span`
   padding-right: 1em;
   user-select: none;
   opacity: 0.5;
-`;
+`
 
 const LineContent = styled.span`
   display: table-cell;
-`;
+`
