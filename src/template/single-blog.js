@@ -1,10 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components";
-import { MDXRenderer } from "gatsby-plugin-mdx"
 
 import { Layout } from "../styled-components"
-import { BlogTitleSection } from "../components"
+import { BlogTitleSection, BlogBody } from "../components"
 
 const SingleBlog = ({ data }) => {
   const { body, frontmatter: { date, title } } = data.mdx
@@ -15,13 +14,19 @@ const SingleBlog = ({ data }) => {
         <BlogTitleSection date={date} title={title} />
       </HeaderSection>
 
-      <MDXRenderer>{body}</MDXRenderer>
+      <BodySection>
+        <BlogBody body={body} />
+      </BodySection>
     </Layout>
   )
 }
 
 const HeaderSection = styled.section`
   padding: 2rem 0;
+`
+
+const BodySection = styled.section`
+  padding: 0 2rem;
 `
 
 export default SingleBlog
