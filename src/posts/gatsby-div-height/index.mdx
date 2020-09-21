@@ -8,7 +8,8 @@ tags: gatsby, css, reactjs
 featureImage: gatsby-div-height.js
 ---
 
-#Use Case
+# Use Case
+
 A simple UI containing a header, main and footer.
 
 The footer should stick to the bottom if content above it (main) does not fill the whole view and get pushed down if the content (main) exceeds the view height.
@@ -16,13 +17,17 @@ The footer should stick to the bottom if content above it (main) does not fill t
 ![What we Have!](https://thepracticaldev.s3.amazonaws.com/i/9nmvdxs1nvu995y6zh0d.png)
 
 <figcaption>What we Have!</figcaption>
+
 ![What we Want!](https://thepracticaldev.s3.amazonaws.com/i/cw5bmw5znid8bpqpmlao.png)
+
 <figcaption>What we Want!</figcaption>{" "}
 
-#The Simple Solution
+# The Simple Solution
+
 My first thought was assigning all html tags above the div which holds the `<main></main>` tags `height: '100%'`.
 
-##But!!! 😮😮😮
+## But!!! 😮😮😮
+
 ![gatsby html structure](https://thepracticaldev.s3.amazonaws.com/i/iho2sk8cs1n1x1ax2wel.png)<figcaption>Additional div **Highlighted**</figcaption>
 
 Gatsby uses [@reach/router](https://github.com/reach/router) which wraps the `Layout` component in an additional div. This is done so,
@@ -31,12 +36,13 @@ Gatsby uses [@reach/router](https://github.com/reach/router) which wraps the `La
 
 So you can see how adding style to a javascript injected div without any `class` or `id` might be an issue.
 
-#The Real Solution
+# The Real Solution
+
 Well the **real solution** is actually still the same, we need to assign a `height: '100%'` to all parent divs.
 
 - Create a new css file and name it `global.css`. I've put it in a separate styles folder in my repo.
 
-```
+```javascript
 /*
  * Purpose:
  * Assign height: "100%" to
@@ -59,32 +65,38 @@ div[role="group"][tabindex] {
 
 - In the root of your directory, look for `gatsby-browser.js` and import `global.css`.
 
-```
-import './src/styles/global.css'
+```javascript
+import "./src/styles/global.css"
 ```
 
 - I like to start my projects from scratch. This is my take on `Layout` Component.
 
-```
-<div style={{
-  height: '100%',
-  display: 'flex',
-  flexDirection: "column"
-}}>
+```javascript
+<div
+  style={{
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  }}
+>
   <header>
     <Header siteTitle={data.site.siteMetadata.title} />
   </header>
 
   <main
     style={{
-      backgroundColor: 'pink',
-      flexGrow: 1
+      backgroundColor: "pink",
+      flexGrow: 1,
     }}
-  >{children}</main>
+  >
+    {children}
+  </main>
 
-  <footer style={{
-    backgroundColor: 'aquamarine'
-  }}>
+  <footer
+    style={{
+      backgroundColor: "aquamarine",
+    }}
+  >
     © {new Date().getFullYear()}, Built with
     {` `}
     <a href="https://www.gatsbyjs.org">Gatsby</a>
@@ -92,7 +104,8 @@ import './src/styles/global.css'
 </div>
 ```
 
-#The Result as Promised !!
+# The Result as Promised !!
+
 ![Gatsby CSS - 100% Height](https://thepracticaldev.s3.amazonaws.com/i/z1cdwannqfd42xs7vqrx.gif)
 
 <figcaption>Footer pushed down by content</figcaption>
