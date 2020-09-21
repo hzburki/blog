@@ -1,27 +1,22 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 
-export default function Home({ data }) {
+import { Header, Body, Footer } from "../components"
+
+export default () => {
   return (
     <Container>
-      <Header />
+      <HeaderSection> 
+        <Header />
+      </HeaderSection>
 
-      <Body>
-        <ul>
-          {data.allMdx.edges.map(item => {
-            const { slug, title } = item.node.frontmatter
+      <BodySection>
+        <Body />
+      </BodySection>
 
-            return (
-              <li key={slug}>
-                <Link to={slug}>{title}</Link>
-              </li>
-            )
-          })}
-        </ul>
-      </Body>
-    
-      <Footer />
+      <FooterSection>
+        <Footer />
+      </FooterSection>
     </Container>
   )
 }
@@ -53,17 +48,15 @@ const Footer = styled.div`
   height: 100px;
 `
 
-export const AllBlogsQuery = graphql`
-  query AllBlogsQuery {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}) {
-      edges {
-        node {
-          frontmatter {
-            title
-            slug
-          }
-        }
-      }
-    }
-  }
+const HeaderSection = styled.section`
+  grid-area: header;
+  padding: 2rem 0;
+`
+
+const BodySection = styled.section`
+  grid-area: body;
+`
+
+const FooterSection = styled.section`
+  grid-area: footer;
 `
