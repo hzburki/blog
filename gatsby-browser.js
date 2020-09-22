@@ -18,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     font-size: 16px;
     font-family: ${props => props.theme.fonts.main};
-    background-color: #F9FEFF;
+    background-color: #FFFFFF;
   }
 
   #___gatsby, #gatsby-focus-wrapper {
