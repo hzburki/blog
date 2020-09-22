@@ -21,7 +21,10 @@ const Card = styled.div`
   margin: 2rem 0;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: ${props => props.theme.shadows.shadow1};
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
 `
 
 const Title = styled.h1`

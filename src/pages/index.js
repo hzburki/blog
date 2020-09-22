@@ -6,7 +6,7 @@ import { Header, Body, Footer } from "../components"
 export default () => {
   return (
     <Container>
-      <HeaderSection> 
+      <HeaderSection>
         <Header />
       </HeaderSection>
 
@@ -25,7 +25,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
-  grid-template-areas: 
+  grid-template-areas:
     "header"
     "body"
     "footer";
