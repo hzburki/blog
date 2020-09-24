@@ -26,8 +26,8 @@ export const Header = () => {
         <Name>Haseeb Zia Burki</Name>
 
         <Introduction>
-          I’m a full stack engineer working at Numu, in charge of developing web
-          and mobile apps, handling AWS applications and devOps tasks. I may
+          I’m a full stack engineer working at Numu, incharge of developing web
+          and mobile apps, handling AWS services and devOps tasks. I may
           also write sporadically about my technical adventures.
         </Introduction>
       </Wrapper>

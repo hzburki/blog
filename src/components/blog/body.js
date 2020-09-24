@@ -2,15 +2,25 @@ import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "styled-components"
 
+import { Layout } from "../../styled-components"
+
 export const BlogBody = ({ body }) => {
   return (
-    <MarkdownWrapper>
-      <MDXRenderer>{body}</MDXRenderer>
-    </MarkdownWrapper>
+    <Layout>
+      <MarkdownWrapper>
+        <MDXRenderer>{body}</MDXRenderer>
+      </MarkdownWrapper>
+    </Layout>
   )
 }
 
 const MarkdownWrapper = styled.div`
+  border-radius: 15px;
+  padding: 2rem;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+
   h1 {
     font-size: 34px;
     margin-bottom: 0.5rem;
@@ -50,7 +60,8 @@ const MarkdownWrapper = styled.div`
     font-weight: 700;
   }
   /* Lists */
-  ul, ol {
+  ul,
+  ol {
     margin: 1rem 0 1rem 2rem;
   }
   li {
@@ -77,10 +88,10 @@ const MarkdownWrapper = styled.div`
   p {
     font-weight: 500;
     font-size: 20px;
-    margin-bottom: 2rem; 
+    margin-bottom: 2rem;
   }
   /* Quote */
-  blockquote{
+  blockquote {
     border-left: 4px solid darkgray;
     padding-left: 2rem;
     margin-bottom: 2rem;
@@ -88,5 +99,11 @@ const MarkdownWrapper = styled.div`
   /* Code */
   pre {
     margin-bottom: 2rem;
+  }
+  p {
+    code {
+      padding: 0 0.25rem;
+      font-size: 18px;
+    }
   }
 `
