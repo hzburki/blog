@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 export const BlogCard = ({ title, date, excerpt, slug }) => {
   return (
-    <Link style={{ color: "black", textDecoration: "none" }} to={slug}>
+    <Link style={{ color: "black", textDecoration: "none", backgroundColor: "white" }} to={slug}>
       <Card>
         <Title>{title}</Title>
 
@@ -21,7 +21,7 @@ const Card = styled.div`
   margin: 2rem 0;
   border-radius: 10px;
   padding: 10px;
-  background-color: white;
+  background-color: #FFFFFF;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);

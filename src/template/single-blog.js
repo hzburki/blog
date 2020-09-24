@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components";
 
-import { BlogTitleSection, BlogBody } from "../components"
+import { BlogTitleSection, BlogBody, Footer } from "../components"
 
 const SingleBlog = ({ data }) => {
   const { body, frontmatter: { date, title } } = data.mdx
@@ -16,6 +16,8 @@ const SingleBlog = ({ data }) => {
       <BodySection>
         <BlogBody body={body} />
       </BodySection>
+
+      <Footer />
     </>
   )
 }

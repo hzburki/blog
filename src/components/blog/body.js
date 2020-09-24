@@ -17,6 +17,7 @@ export const BlogBody = ({ body }) => {
 const MarkdownWrapper = styled.div`
   border-radius: 15px;
   padding: 2rem;
+  background-color: white;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
