@@ -17,6 +17,7 @@ export const BlogBody = ({ body }) => {
 const MarkdownWrapper = styled.div`
   border-radius: 15px;
   padding: 2rem;
+  text-align: justify;
   background-color: white;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
@@ -67,9 +68,18 @@ const MarkdownWrapper = styled.div`
   }
   li {
     margin: 0.25rem 0;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0.5px;
 
     p {
       margin-bottom: 0;
+    }
+
+    code {
+      padding: 0 0.25rem;
+      font-size: 18px;
+      border-radius: 5px;
     }
   }
   a {
@@ -78,10 +88,11 @@ const MarkdownWrapper = styled.div`
     color: black;
   }
   img {
-    height: 100%;
+    height: auto;
     width: 100%;
+    object-fit: contain;
     border-radius: 10px;
-    margin: 1rem 0;
+    margin-top: 1rem;
     -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
     -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
     box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
@@ -93,9 +104,14 @@ const MarkdownWrapper = styled.div`
   }
   /* Quote */
   blockquote {
-    border-left: 4px solid darkgray;
-    padding-left: 2rem;
+    border-left: 4px solid grey;
+    padding-left: 1rem;
     margin-bottom: 2rem;
+    background-color: whitesmoke;
+    
+    p {
+      padding: 0.5rem 0.5rem 0.5rem 0rem;
+    }
   }
   /* Code */
   pre {
@@ -105,6 +121,7 @@ const MarkdownWrapper = styled.div`
     code {
       padding: 0 0.25rem;
       font-size: 18px;
+      border-radius: 5px;
     }
   }
 `

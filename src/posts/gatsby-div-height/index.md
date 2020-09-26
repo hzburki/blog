@@ -5,8 +5,12 @@ slug: gatsby-dev-height
 date: May 15, 2019
 excerpt: Make a sticky footer which occupies bottom of the view if body does not fill the view and gets pushed down if body exceeds the view
 tags: gatsby, css, reactjs
-featureImage: gatsby-div-height.js
+featureImage: gatsby-div-height.png
 ---
+
+<!-- Imports -->
+
+import { ImageWrapper } from "../../styled-components"
 
 # Use Case
 
@@ -14,13 +18,17 @@ A simple UI containing a header, main and footer.
 
 The footer should stick to the bottom if content above it (main) does not fill the whole view and get pushed down if the content (main) exceeds the view height.
 
+<ImageWrapper caption="What we Have!">
+
 ![What we Have!](https://thepracticaldev.s3.amazonaws.com/i/9nmvdxs1nvu995y6zh0d.png)
 
-<figcaption>What we Have!</figcaption>
+</ImageWrapper>
+
+<ImageWrapper caption="What we Want!">
 
 ![What we Want!](https://thepracticaldev.s3.amazonaws.com/i/cw5bmw5znid8bpqpmlao.png)
 
-<figcaption>What we Want!</figcaption>{" "}
+</ImageWrapper>
 
 # The Simple Solution
 
@@ -28,7 +36,11 @@ My first thought was assigning all html tags above the div which holds the `<mai
 
 ## But!!! 😮😮😮
 
-![gatsby html structure](https://thepracticaldev.s3.amazonaws.com/i/iho2sk8cs1n1x1ax2wel.png)<figcaption>Additional div **Highlighted**</figcaption>
+<ImageWrapper caption="Additional div Highlighted">
+
+![gatsby html structure](https://thepracticaldev.s3.amazonaws.com/i/iho2sk8cs1n1x1ax2wel.png)
+
+</ImageWrapper>
 
 Gatsby uses [@reach/router](https://github.com/reach/router) which wraps the `Layout` component in an additional div. This is done so,
 
@@ -106,8 +118,10 @@ import "./src/styles/global.css"
 
 # The Result as Promised !!
 
+<ImageWrapper caption="Footer pushed down by content">
+
 ![Gatsby CSS - 100% Height](https://thepracticaldev.s3.amazonaws.com/i/z1cdwannqfd42xs7vqrx.gif)
 
-<figcaption>Footer pushed down by content</figcaption>
+</ImageWrapper>
 
 > This solution is based on a [github thread](https://github.com/gatsbyjs/gatsby/issues/7310).

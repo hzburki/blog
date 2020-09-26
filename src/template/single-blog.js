@@ -1,16 +1,16 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components";
+import styled from "styled-components"
 
 import { BlogTitleSection, BlogBody, Footer } from "../components"
 
 const SingleBlog = ({ data }) => {
-  const { body, frontmatter: { date, title } } = data.mdx
+  const { body, frontmatter } = data.mdx
 
   return (
     <>
       <HeaderSection>
-        <BlogTitleSection date={date} title={title} />
+        <BlogTitleSection data={frontmatter} />
       </HeaderSection>
 
       <BodySection>
@@ -23,35 +23,30 @@ const SingleBlog = ({ data }) => {
 }
 
 const HeaderSection = styled.section`
-  padding: 6rem 0 5rem 0;
+  padding: 6rem 0 3rem 0;
 `
 
-const BodySection = styled.section`
-`
+const BodySection = styled.section``
 
 export default SingleBlog
 
 export const SingleBlogQuery = graphql`
   query SingleBlogQuery($id: String!) {
-    mdx(id: {eq: $id}) {
+    mdx(id: { eq: $id }) {
       body
       frontmatter {
         date
         excerpt
         slug
+        title
         featureImage {
           childImageSharp {
-            fixed {
-              base64
-              tracedSVG
-              aspectRatio
-              srcWebp
-              srcSetWebp
-              originalName
+            fluid(maxWidth: 1200, quality: 100) {
+              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluidLimitPresentationSize
             }
           }
         }
-        title
       }
     }
   }

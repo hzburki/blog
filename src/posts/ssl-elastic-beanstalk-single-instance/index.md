@@ -8,6 +8,10 @@ tags: aws, elasticbeanstalk, ssl
 featureImage: ssl-config.png
 ---
 
+<!-- Imports -->
+
+import { ImageWrapper } from "../../styled-components"
+
 SSL secures data transfer between client and server-side. Not only that it also increases your website’s Google ranking, so it's safe to say that SSL certificates are a _MUST_ have.
 
 AWS provides a very convenient solution called “AWS Certificate Manager” (ACM). It provides _free_ public SSL certificates that you can connect to your load balanced Elastic Beanstalk (EB) instances.
@@ -24,7 +28,11 @@ Well, that’s mildly annoying 😒 but don’t worry we can still provision a f
 
 The first step is to say goodbye to your load balancer. Convert your instance type to “single instance” from “load balanced.” You can do this from the _Capacity_ tab inside _Configurations_. Just choose single instance in the environment type and that’s it.
 
-![Elastic Beanstalk configuration tab.](https://cdn-images-1.medium.com/max/2518/1*ZpuT8WRGcq9mWVYY0gNByQ.png)
+<ImageWrapper caption="Elastic Beanstalk Configuration Tab">
+
+![Elastic Beanstalk Configuration Tab](https://cdn-images-1.medium.com/max/2518/1*ZpuT8WRGcq9mWVYY0gNByQ.png)
+
+</ImageWrapper>
 
 ### 2) Certbot
 
@@ -32,7 +40,9 @@ The second step is creating and signing the certificate using “certbot”. You
 
 Open up the terminal on your local machine, I’m using mac so some of the commands might be a little different for you.
 
-    certbot certonly --manual -d domain.com --preferred-challenges dns
+```
+certbot certonly --manual -d domain.com --preferred-challenges dns
+```
 
 - **_“certonly”_**: use certbot authenticators
 
@@ -48,7 +58,9 @@ After that, it’ll ask you to deploy a DNS TXT record with the name _\_acme-cha
 
 On successfully creating the certificate the cli will spit out two files “privkey.pem” & “fullchain.pem”.
 
-    certbot certificates
+```
+certbot certificates
+```
 
 You can use the above command to list all the certificates along with paths to their files.
 
@@ -58,7 +70,76 @@ Okay so we’re nearly there, the third and last step is enabling HTTPS for your
 
 Create a folder named **_.ebextensions_**, it is important that the name be exactly the same. Then create a configuration file with the extension **_“.config”_**.
 
-`https://gist.github.com/hzburki/6646ea9a0e8788bc9be1ff74576127a6`
+```conf
+Resources:
+  sslSecurityGroupIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: {"Fn::GetAtt" : ["AWSEBSecurityGroup", "GroupId"]}
+      IpProtocol: tcp
+      ToPort: 443
+      FromPort: 443
+      CidrIp: 0.0.0.0/0
+
+packages:
+  yum:
+    mod24_ssl : []
+
+files:
+  /etc/httpd/conf.d/ssl.conf:
+    mode: "000644"
+    owner: root
+    group: root
+    content: |
+      LoadModule ssl_module modules/mod_ssl.so
+      Listen 443
+      <VirtualHost *:443>
+        <Proxy *>
+          Order deny,allow
+          Allow from all
+        </Proxy>
+
+        SSLEngine             on
+        SSLCertificateFile    "/etc/pki/tls/certs/server.crt"
+        SSLCertificateChainFile    "/etc/pki/tls/certs/chain.pem"
+        SSLCertificateKeyFile "/etc/pki/tls/certs/server.key"
+        SSLCipherSuite        EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+        SSLProtocol           All -SSLv2 -SSLv3
+        SSLHonorCipherOrder   On
+        SSLSessionTickets     Off
+
+        Header always set Strict-Transport-Security "max-age=63072000; includeSubdomains; preload"
+        Header always set X-Frame-Options DENY
+        Header always set X-Content-Type-Options nosniff
+
+        ProxyPass / http://localhost:80/ retry=0
+        ProxyPassReverse / http://localhost:80/
+        ProxyPreserveHost on
+        RequestHeader set X-Forwarded-Proto "https" early
+
+      </VirtualHost>
+
+  /etc/pki/tls/certs/server.crt:
+    mode: "000400"
+    owner: root
+    group: root
+    source: 'https://s3-eu-west-1.amazonaws.com/numu.elasticbean/ssl/`{"Ref": "AWSEBEnvironmentName" }`.crt'
+    authentication: S3Access
+
+  /etc/pki/tls/certs/server.key:
+    mode: "000400"
+    owner: root
+    group: root
+    source: 'https://s3-eu-west-1.amazonaws.com/numu.elasticbean/ssl/`{"Ref": "AWSEBEnvironmentName" }`.key'
+    authentication: S3Access
+
+  /etc/pki/tls/certs/chain.pem:
+    mode: "000400"
+    owner: root
+    group: root
+    source: 'https://s3-eu-west-1.amazonaws.com/numu.elasticbean/ssl/`{"Ref": "AWSEBEnvironmentName" }`.pem'
+    authentication: S3Access
+```
 
 - **“packages”** key installs mod24_ssl on the instance.
 
@@ -76,6 +157,10 @@ Now all you have to do is deploy your code to Elastic Beanstalk. Make sure that 
 
 > # Aaand Voilà !!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
 
+<ImageWrapper caption="nuff’ said 😎😎😎">
+
 ![nuff’ said 😎😎😎](https://cdn-images-1.medium.com/max/4392/1*lU5YNe-S1O7nN-XlYrptNg.png)
+
+</ImageWrapper>
 
 ## _Happy Coding :)_

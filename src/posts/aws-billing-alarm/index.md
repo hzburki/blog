@@ -5,8 +5,12 @@ slug: aws-billing-alarm
 date: Sep 2, 2019
 excerpt: Setup up a simple billing alarm to keep costs under control before getting started with AWS
 tags: #aws #cloud
-featureImage: aws-biiling-alarm.png
+featureImage: aws-billing-alarm.png
 ---
+
+<!-- Imports -->
+
+import { ImageWrapper } from "../../styled-components"
 
 Whether you're a novice, just starting or a highly skilled AWS ninja, you need to keep an eye on those pesky AWS bills. Billing is a very important and sometimes confusing part of AWS and if left unchecked can cause a lot of damage.
 
@@ -16,16 +20,21 @@ AWS gives a one-year free trial and there are a lot of great tutorials out there
 
 ---
 
-##What is a Billing Alarm?
+## What is a Billing Alarm?
+
 Good question! Billing Alarm is a limit that you can set and AWS console lets you know (email) when you exceed that limit.
 
-##Let's get our hands dirty !! 👩‍💻 👨‍💻
+## Let's get our hands dirty !! 👩‍💻 👨‍💻
 
 - Assuming you are logged into the console. Click on your **username** in the top right bar and select the **Billing Dashboard**. Alternately, you can also search for **billing** in the search bar, on the main page.
 
 - On the left tab, under the **Preferences** section click **Billing preferences**.
 
+<ImageWrapper caption="Preference Screen - AWS Console">
+
 ![Preference Screen - Haseeb Burki AWS Billing Alarm](https://thepracticaldev.s3.amazonaws.com/i/8cuveiuxd8zysb8mzj1m.png)
+
+</ImageWrapper>
 
 - Check **Receive Billing Alerts** and press **Save Preferences**.
 
@@ -39,25 +48,33 @@ Good question! Billing Alarm is a limit that you can set and AWS console lets yo
 
 - The **Create Alarm** button will take you to a setup wizard. There are four steps in the wizard:
 
-1. Specify metrics and conditions
-2. Configure actions
-3. Add description
-4. Preview and create
+  1. Specify metrics and conditions
+  2. Configure actions
+  3. Add description
+  4. Preview and create
 
 - In the first step, you can add the alarm's name, currency, and conditions that trigger the alarm.
 
+<ImageWrapper caption="Specify Metrics - AWS Console">
+
 ![Specify Metrics - Haseeb Burki AWS Billing Alarm](https://thepracticaldev.s3.amazonaws.com/i/qw20whamjy12hsqh16ce.png)
+
+</ImageWrapper>
 
 - In the second step, you can configure when the alarm is triggered and who it goes out to. To define who receives the notification, you will need to create or choose an existing, SNS topic.
 
 - Complete the following steps;
 
-1. Select **Create new topic** under "Select an SNS topic" subheading
-2. You can change the topic name if you want.
-3. Add your email address. You can add multiple email addresses separated by commas (,)
-4. Press **Create topic**
+  1. Select **Create new topic** under "Select an SNS topic" subheading
+  2. You can change the topic name if you want.
+  3. Add your email address. You can add multiple email addresses separated by commas (,)
+  4. Press **Create topic**
+
+<ImageWrapper caption="Creating SNS Topic - AWS Console">
 
 ![Creating SNS Topic - Haseeb Burki AWS Billing Alarm](https://thepracticaldev.s3.amazonaws.com/i/ovjpwulk0pri99r1vn86.png)
+
+</ImageWrapper>
 
 - In the third step just add a unique name and description (optional) for the alarm. This is so you can recognize the alarm easily among others you may create in the future.
 
