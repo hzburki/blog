@@ -41,6 +41,10 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   padding: 0 3rem;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: 0;
+  }
 `
 
 const ProfilePicture = styled(Img)`

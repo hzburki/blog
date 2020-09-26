@@ -7,17 +7,21 @@ import { Layout } from "../../styled-components"
 
 export const BlogTitleSection = ({ data: { title, date, featureImage } }) => {
   return (
-    <Layout>
-      <Wrapper>
-        <BackButton to="/">&#x2190; Back</BackButton>
+    <>
+      <Layout>
+        <Wrapper>
+          <BackButton to="/">&#x2190; Back</BackButton>
 
-        <BlogTitle>{title}</BlogTitle>
+          <BlogTitle>{title}</BlogTitle>
 
-        <PublishedDate>{date}</PublishedDate>
-      </Wrapper>
+          <PublishedDate>{date}</PublishedDate>
+        </Wrapper>
+      </Layout>
 
-      <GatsbyImage fluid={featureImage.childImageSharp.fluid} />
-    </Layout>
+      {/* <GatsbyImageWrapper> */}
+        <GatsbyImage fluid={featureImage.childImageSharp.fluid} />
+      {/* </GatsbyImageWrapper> */}
+    </>
   )
 }
 
@@ -29,7 +33,7 @@ const Wrapper = styled.div`
 `
 
 const BlogTitle = styled.h1`
-  font-size: 2.6rem;
+  font-size: calc(1vw + 2rem);
   text-align: center;
   margin: 1rem 0;
 `
@@ -38,15 +42,26 @@ const BackButton = styled(Link)`
   font-weight: 700;
   color: #000;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: calc(1vw + 1rem);
 `
 
-const PublishedDate = styled.p``
+const PublishedDate = styled.p`
+  font-size: calc(1vw + 0.5rem);
+`
+
+const GatsbyImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const GatsbyImage = styled(Img)`
   margin-top: 1rem;
-  border-radius: 15px;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+  
+  @media (min-width: 1501px) {
+    border-radius: 15px;
+  }
 `

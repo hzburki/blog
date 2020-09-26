@@ -15,13 +15,20 @@ export const BlogBody = ({ body }) => {
 }
 
 const MarkdownWrapper = styled.div`
-  border-radius: 15px;
   padding: 2rem;
   text-align: justify;
   background-color: white;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
+
+  @media (min-width: 801px) {
+    border-radius: 15px;
+  }
+
+  @media (max-width: 800px) {
+    padding: 2rem 0.8rem;
+  }
 
   h1 {
     font-size: 34px;
@@ -47,6 +54,13 @@ const MarkdownWrapper = styled.div`
     font-size: 24px;
     margin-bottom: 0.5rem;
   }
+
+  @media (max-width: 800px) {
+    h1, h2, h3, h4, h5, h6 {
+      text-align: left;
+    }
+  }
+
   /* Seperator */
   hr {
     margin: 2rem 6rem;
@@ -99,7 +113,7 @@ const MarkdownWrapper = styled.div`
   }
   p {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 2rem;
   }
   /* Quote */
@@ -108,7 +122,7 @@ const MarkdownWrapper = styled.div`
     padding-left: 1rem;
     margin-bottom: 2rem;
     background-color: whitesmoke;
-    
+
     p {
       padding: 0.5rem 0.5rem 0.5rem 0rem;
     }

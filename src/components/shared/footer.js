@@ -18,7 +18,6 @@ export const Footer = () => {
 const Wrapper = styled.div`
   margin-top: 3rem;
   background-color: white;
-  border-top: 1px solid grey;
   -webkit-box-shadow: 0px -2px 5px 0px rgba(112, 112, 112, 0.5);
   -moz-box-shadow: 0px -2px 5px 0px rgba(112, 112, 112, 0.5);
   box-shadow: 0px -2px 5px 0px rgba(112, 112, 112, 0.5);

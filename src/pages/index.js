@@ -34,6 +34,10 @@ const Container = styled.div`
 const HeaderSection = styled.section`
   grid-area: header;
   padding: 2rem 0;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: 2rem 0 0 0;
+  }
 `
 
 const BodySection = styled.section`
