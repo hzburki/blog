@@ -56,7 +56,7 @@ const GatsbyImageWrapper = styled.div`
 `
 
 const GatsbyImage = styled(Img)`
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
