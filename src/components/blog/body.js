@@ -12,14 +12,16 @@ export const BlogBody = ({ body }) => {
 
 const MarkdownWrapper = styled.div`
   padding: 2rem;
+  border-radius: 15px;
   background-color: white;
+
   /* Shadow */
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
 
   /* Border around blog content */
-  max-width: 960px;
+  max-width: 904px;
   margin: 0 auto;
 
   @media ${props => props.theme.breakpoints.mobile} {
@@ -27,43 +29,78 @@ const MarkdownWrapper = styled.div`
   }
 
   /* Remove border radius for small devices */
-  @media (min-width: 801px) {
-    border-radius: 15px;
-  }
-
-  /* Padding for smaller devices */
-  @media (max-width: 800px) {
+  @media ${props => props.theme.breakpoints.thirteenInch},
+    ${props => props.theme.breakpoints.tablet},
+    ${props => props.theme.breakpoints.mobile} {
+    border-radius: 0;
     padding: 2rem 0.8rem;
   }
 
   /* Blog content styling */
   h1 {
-    font-size: 34px;
+    font-size: 36px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 26px;
+    }
   }
   h2 {
-    font-size: 32px;
+    font-size: 34px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 24px;
+    }
   }
   h3 {
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 22px;
+    }
   }
   h4 {
-    font-size: 28px;
+    font-size: 30px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 20px;
+    }
   }
   h5 {
-    font-size: 26px;
+    font-size: 28px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 18px;
+    }
   }
   h6 {
-    font-size: 24px;
+    font-size: 26px;
     margin-bottom: 0.5rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 16px;
+    }
   }
 
-  @media (max-width: 800px) {
-    h1, h2, h3, h4, h5, h6 {
+  @media ${props => props.theme.breakpoints.thirteenInch},
+    ${props => props.theme.breakpoints.tablet},
+    ${props => props.theme.breakpoints.mobile} {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       text-align: left;
     }
   }
@@ -75,6 +112,11 @@ const MarkdownWrapper = styled.div`
     background-color: grey;
     border: 0;
     border-radius: 10px;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+        margin: 2rem 0;
+    }
   }
   em {
     font-style: italic;
@@ -91,8 +133,13 @@ const MarkdownWrapper = styled.div`
   li {
     margin: 0.25rem 0;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 21px;
     margin-bottom: 0.5px;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 18px;
+    }
 
     p {
       margin-bottom: 0;
@@ -100,8 +147,13 @@ const MarkdownWrapper = styled.div`
 
     code {
       padding: 0 0.25rem;
-      font-size: 18px;
+      font-size: 21px;
       border-radius: 5px;
+
+      @media ${props => props.theme.breakpoints.tablet},
+        ${props => props.theme.breakpoints.mobile} {
+        font-size: 18px;
+      }
     }
   }
   a {
@@ -121,8 +173,13 @@ const MarkdownWrapper = styled.div`
   }
   p {
     font-weight: 500;
-    font-size: 18px;
+    font-size: 21px;
     margin-bottom: 2rem;
+
+    @media ${props => props.theme.breakpoints.tablet},
+      ${props => props.theme.breakpoints.mobile} {
+      font-size: 18px;
+    }
   }
 
   /* Quote */
@@ -134,19 +191,29 @@ const MarkdownWrapper = styled.div`
 
     p {
       padding: 0.5rem 0.5rem 0.5rem 0rem;
-      font-size: 28px;
+      font-size: 21px;
+
+      @media ${props => props.theme.breakpoints.tablet},
+        ${props => props.theme.breakpoints.mobile} {
+        font-size: 18px;
+      }
     }
   }
-  
+
   /* Code */
   pre {
     margin-bottom: 2rem;
   }
   p {
     code {
-      padding: 0 0.25rem;
-      font-size: 18px;
+      font-size: 21px;
       border-radius: 5px;
+      padding: 0 0.25rem;
+
+      @media ${props => props.theme.breakpoints.tablet},
+        ${props => props.theme.breakpoints.mobile} {
+        font-size: 18px;
+      }
     }
   }
 `

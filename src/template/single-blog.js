@@ -23,10 +23,10 @@ const SingleBlog = ({ data }) => {
 }
 
 const HeaderSection = styled.section`
-  padding: 6rem 0 3rem 0;
+  padding-bottom: 1rem;
 
-  @media (max-width: 800px) {
-    padding-bottom: 1rem;
+  @media ${props => props.theme.breakpoints.desktop} {
+    padding: 1rem 0 3rem 0;
   }
 `
 

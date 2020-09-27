@@ -13,8 +13,12 @@ export default {
     light2: "hsl(0,0%,99%)",
   },
   breakpoints: {
-    mobile: "only screen and (max-width: 50rem)",
-    tablet: "only screen and (max-width: 65rem)",
+    banner: "(min-width: 1501px)", // for banner styling above 1500px
+    desktop: "(min-width: 1080px)",
+    fifteenInch: "(max-width: 1079.98px) and (min-width: 904px)",
+    thirteenInch: "(max-width: 903.98px) and (min-width: 728px)",
+    tablet: "(max-width: 727.98px) and (min-width: 552px)",
+    mobile: "(max-width: 551.98px)",
   },
   spacings: {
     xxSmall: ".25rem",
