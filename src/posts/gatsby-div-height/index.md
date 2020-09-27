@@ -4,7 +4,7 @@ published: true
 slug: gatsby-dev-height
 date: May 15, 2019
 excerpt: Make a sticky footer which occupies bottom of the view if body does not fill the view and gets pushed down if body exceeds the view
-tags: gatsby, css, reactjs
+tags: #gatsby, #css, #reactjs
 featureImage: gatsby-div-height.png
 ---
 

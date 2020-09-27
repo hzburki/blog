@@ -10,8 +10,6 @@ export const BlogTitleSection = ({ data: { title, date, featureImage } }) => {
     <>
       <Container>
         <Wrapper>
-          <BackButton to="/">&#x2190; Back</BackButton>
-
           <BlogTitle>{title}</BlogTitle>
 
           <PublishedDate>{date}</PublishedDate>

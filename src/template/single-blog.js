@@ -1,36 +1,15 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from "styled-components"
 
-import { BlogTitleSection, BlogBody, Footer } from "../components"
+import { BlogTitleSection, BlogBody, Layout } from "../components"
 
 const SingleBlog = ({ data }) => {
   const { body, frontmatter } = data.mdx
 
   return (
-    <>
-      <HeaderSection>
-        <BlogTitleSection data={frontmatter} />
-      </HeaderSection>
-
-      <BodySection>
-        <BlogBody body={body} />
-      </BodySection>
-
-      <Footer />
-    </>
+    <Layout body={<BlogBody body={body} />} header={<BlogTitleSection data={frontmatter} />} />
   )
 }
-
-const HeaderSection = styled.section`
-  padding-bottom: 1rem;
-
-  @media ${props => props.theme.breakpoints.desktop} {
-    padding: 1rem 0 3rem 0;
-  }
-`
-
-const BodySection = styled.section``
 
 export default SingleBlog
 

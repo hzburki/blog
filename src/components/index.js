@@ -1,8 +1,10 @@
 // Shared
-export * from "./shared/body"
 export * from "./shared/footer"
+export * from "./shared/navbar"
+export * from "./shared/layout"
 
 // Index
+export * from "./index/body"
 export * from "./index/header"
 export * from "./index/blog-card"
 
