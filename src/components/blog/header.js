@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-import styled, { css } from "styled-components"
-import { Layout } from "../../styled-components"
+import styled from "styled-components"
+import { Container } from "../../styled-components"
 
 export const BlogTitleSection = ({ data: { title, date, featureImage } }) => {
   return (
     <>
-      <Layout>
+      <Container>
         <Wrapper>
           <BackButton to="/">&#x2190; Back</BackButton>
 
@@ -16,11 +16,9 @@ export const BlogTitleSection = ({ data: { title, date, featureImage } }) => {
 
           <PublishedDate>{date}</PublishedDate>
         </Wrapper>
-      </Layout>
+      </Container>
 
-      {/* <GatsbyImageWrapper> */}
-        <GatsbyImage fluid={featureImage.childImageSharp.fluid} />
-      {/* </GatsbyImageWrapper> */}
+      <GatsbyImage fluid={featureImage.childImageSharp.fluid} />
     </>
   )
 }
@@ -49,17 +47,8 @@ const PublishedDate = styled.p`
   font-size: calc(1vw + 0.5rem);
 `
 
-const GatsbyImageWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
 const GatsbyImage = styled(Img)`
   margin: 1rem auto 0 auto;
-  -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
-  -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
-  box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   
   @media (min-width: 1501px) {
     border-radius: 15px;

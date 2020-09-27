@@ -24,6 +24,10 @@ const SingleBlog = ({ data }) => {
 
 const HeaderSection = styled.section`
   padding: 6rem 0 3rem 0;
+
+  @media (max-width: 800px) {
+    padding-bottom: 1rem;
+  }
 `
 
 const BodySection = styled.section``

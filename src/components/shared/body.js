@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { BlogCard } from "../index"
-import { Layout } from "../../styled-components"
+import { Container } from "../../styled-components"
 
 export const Body = () => {
   const data = useStaticQuery(graphql`
@@ -23,7 +23,7 @@ export const Body = () => {
   `)
 
   return (
-    <Layout>
+    <Container>
       {data.allMdx.edges.map(blog => {
         return (
           <BlogCard
@@ -32,6 +32,6 @@ export const Body = () => {
           />
         )
       })}
-    </Layout>
+    </Container>
   )
 }

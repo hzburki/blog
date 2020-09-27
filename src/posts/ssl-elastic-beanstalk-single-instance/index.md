@@ -20,11 +20,11 @@ That’s great !! but we can lose the load balancer for instances hosting our de
 
 After all, a single low-cost instance will suffice. We’ll just generate a certificate using ACM use it on our “_single instance_” … _wait what’s that !! we can’t ??_ 😧😧😧
 
-> # Apparently, ACM requires a load balancer (or CloudFront distribution). It’s not possible to use the certificate with an instance directly.
+> Apparently, ACM requires a load balancer (or CloudFront distribution). It’s not possible to use the certificate with an instance directly.
 
 Well, that’s mildly annoying 😒 but don’t worry we can still provision a free SSL certificate without enduring unnecessary load balancer expenses, in three easy steps.
 
-### 1) Elastic Beanstalk
+# 1) Elastic Beanstalk
 
 The first step is to say goodbye to your load balancer. Convert your instance type to “single instance” from “load balanced.” You can do this from the _Capacity_ tab inside _Configurations_. Just choose single instance in the environment type and that’s it.
 
@@ -34,7 +34,7 @@ The first step is to say goodbye to your load balancer. Convert your instance ty
 
 </ImageWrapper>
 
-### 2) Certbot
+# 2) Certbot
 
 The second step is creating and signing the certificate using “certbot”. You can find it [here](https://certbot.eff.org/). I should mention that you’ll need a domain to use the certificate on.
 
@@ -64,7 +64,7 @@ certbot certificates
 
 You can use the above command to list all the certificates along with paths to their files.
 
-### 3) .ebextensions
+# 3) .ebextensions
 
 Okay so we’re nearly there, the third and last step is enabling HTTPS for your “single instance” by allowing traffic on port 443.
 
@@ -155,7 +155,7 @@ files:
 
 Now all you have to do is deploy your code to Elastic Beanstalk. Make sure that your instance is connected to the same URL in [Route53](https://aws.amazon.com/route53/) that you entered in certbot cli …
 
-> # Aaand Voilà !!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
+> Aaand Voilà!!! **A+** rating for your very own, free of cost SSL Certificate. You can test your SSL certificate at [ssllabs.com](https://www.ssllabs.com/ssltest/).
 
 <ImageWrapper caption="nuff’ said 😎😎😎">
 

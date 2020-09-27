@@ -2,34 +2,41 @@ import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import styled from "styled-components"
 
-import { Layout } from "../../styled-components"
-
 export const BlogBody = ({ body }) => {
   return (
-    <Layout>
-      <MarkdownWrapper>
-        <MDXRenderer>{body}</MDXRenderer>
-      </MarkdownWrapper>
-    </Layout>
+    <MarkdownWrapper>
+      <MDXRenderer>{body}</MDXRenderer>
+    </MarkdownWrapper>
   )
 }
 
 const MarkdownWrapper = styled.div`
   padding: 2rem;
-  text-align: justify;
   background-color: white;
+  /* Shadow */
   -webkit-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   -moz-box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
   box-shadow: 2px 2px 5px 0px rgba(112, 112, 112, 1);
 
+  /* Border around blog content */
+  max-width: 960px;
+  margin: 0 auto;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    padding: 0.5rem;
+  }
+
+  /* Remove border radius for small devices */
   @media (min-width: 801px) {
     border-radius: 15px;
   }
 
+  /* Padding for smaller devices */
   @media (max-width: 800px) {
     padding: 2rem 0.8rem;
   }
 
+  /* Blog content styling */
   h1 {
     font-size: 34px;
     margin-bottom: 0.5rem;
@@ -75,6 +82,7 @@ const MarkdownWrapper = styled.div`
   strong {
     font-weight: 700;
   }
+
   /* Lists */
   ul,
   ol {
@@ -116,6 +124,7 @@ const MarkdownWrapper = styled.div`
     font-size: 18px;
     margin-bottom: 2rem;
   }
+
   /* Quote */
   blockquote {
     border-left: 4px solid grey;
@@ -125,8 +134,10 @@ const MarkdownWrapper = styled.div`
 
     p {
       padding: 0.5rem 0.5rem 0.5rem 0rem;
+      font-size: 28px;
     }
   }
+  
   /* Code */
   pre {
     margin-bottom: 2rem;

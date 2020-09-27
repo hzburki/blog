@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import { Layout } from "../../styled-components"
+import { Container } from "../../styled-components"
 
 export const Header = () => {
   const data = useStaticQuery(graphql`
@@ -19,7 +19,7 @@ export const Header = () => {
   `)
 
   return (
-    <Layout>
+    <Container>
       <Wrapper>
         <ProfilePicture fluid={data.profilePicture.childImageSharp.fluid} />
 
@@ -27,11 +27,10 @@ export const Header = () => {
 
         <Introduction>
           I’m a full stack engineer working at Numu, incharge of developing web
-          and mobile apps, handling AWS services and devOps tasks. I may
-          also write sporadically about my technical adventures.
+          and mobile apps, handling AWS services and devOps tasks.
         </Introduction>
       </Wrapper>
-    </Layout>
+    </Container>
   )
 }
 

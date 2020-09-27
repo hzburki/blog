@@ -16,8 +16,6 @@ import { ImageWrapper } from "../../styled-components"
 
 > Coming from _Laravel_, which has a myriad of built-in features I started to resent shifting to NodeJS. Setting up error handling, logging, dependency injection, etc. was not what I had in mind. Thankfully I found NestJS, with its out-of-the-box architecture and great documentation I started feeling at home again.
 
-> This is one small step in a long technical journey with NestJS.
-
 SequelizeJS is an ORM that offers connectivity to relational databases like MySQL, PostgreSQL, and MSSQL. For this article, I’m going to use MySQL hosted on [RemoteMySQL](https://remotemysql.com/), but you can use any relational database you like.
 
 # Getting Started
