@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Img from "gatsby-image"
 
 import styled from "styled-components"
@@ -40,17 +40,17 @@ const BlogTitle = styled.h1`
   margin: 1rem 0;
 `
 
-const BackButton = styled(Link)`
-  font-weight: 700;
-  color: #000;
-  text-decoration: none;
-  font-size: 21px;
+// const BackButton = styled(Link)`
+//   font-weight: 700;
+//   color: #000;
+//   text-decoration: none;
+//   font-size: 21px;
 
-  @media ${props => props.theme.breakpoints.tablet},
-    ${props => props.theme.breakpoints.tablet} {
-      font-size: 18px;
-  }
-`
+//   @media ${props => props.theme.breakpoints.tablet},
+//     ${props => props.theme.breakpoints.tablet} {
+//       font-size: 18px;
+//   }
+// `
 
 const PublishedDate = styled.p`
   font-size: 18px;

@@ -22,21 +22,21 @@ SequelizeJS is an ORM that offers connectivity to relational databases like MySQ
 
 Assuming you have a nest project ready to go. We’ll start by installing the following dependencies.
 
-```
+<!-- ```
 npm install --save sequelize sequelize-typescript mysql2
 npm install --save-dev @types/sequelize
-```
+``` -->
 
 First, we’ll pass the connection details to SequelizeJS. We can do this by creating a database module and provider.
 
-```
+<!-- ```
 nest generate module database
 nest generate provider database/database.providers
-```
+``` -->
 
 This is where we will add our entity models to SequelizeJS. I’m adding models right now (even though they are created yet), but you can do this later.
 
-```ts
+<!-- ```ts
 import { Module } from "@nestjs/common"
 import { databaseProviders } from "./database.providers"
 
@@ -45,11 +45,11 @@ import { databaseProviders } from "./database.providers"
   exports: [...databaseProviders],
 })
 export class DatabaseModule {}
-```
+``` -->
 
 I have imported and added the _user_ model to the _addModels_ function. Now export your database provider so it can be consumed with any module that needs to access the database through SequelizeJS.
 
-```ts
+<!-- ```ts
 import { User } from "./user.entity"
 import { USER_REPOSITORY } from "../utils/constants"
 
@@ -59,11 +59,11 @@ export const userProviders = [
     useValue: User,
   },
 ]
-```
+``` -->
 
 # **User Entity Model**
 
-```ts
+<!-- ```ts
 import { Injectable, Inject } from "@nestjs/common"
 import { USER_REPOSITORY } from "../utils/constants"
 import { User } from "./user.entity"
@@ -83,13 +83,13 @@ export class UserService {
     return await this.userRepository.create<User>(createUser)
   }
 }
-```
+``` -->
 
 I’m not going to explain how the code above populates the database table and its attributes. If you’re interested in learning more about SequelizeJS, you can look [here](http://docs.sequelizejs.com/).
 
 Next, we’ll create _user.provider.ts_ which will be used to export the User model so it can be used in different _services_.
 
-```ts
+<!-- ```ts
 import { User } from "./user.entity"
 import { USER_REPOSITORY } from "../utils/constants"
 
@@ -99,7 +99,7 @@ export const userProviders = [
     useValue: User,
   },
 ]
-```
+``` -->
 
 The _USER_REPOSITORY_ is stored in a const variable, in a separate file, so it can be used anywhere without being subject to human error.
 
@@ -109,25 +109,25 @@ At this point, we’re done with our database and SequelizeJS configuration. Fro
 
 Let’s move on and create our user *module, controller and service *with the following command.
 
-```
+<!-- ```
 nest generate module user
 nest generate controller user
 nest generate service user
-```
+``` -->
 
 These are the files responsible for entertaining recurring database requests. But first we’ll create a Data Transfer Object (DTO), this is especially useful for validating _body_ of the incoming HTTP request or building API documentation with swagger, etc.
 
-```ts
+<!-- ```ts
 export class CreateUserDto {
   readonly name: string
   readonly age: number
   readonly email: string
 }
-```
+``` -->
 
 ## User Module
 
-```ts
+<!-- ```ts
 import { Module } from "@nestjs/common"
 import { UserService } from "./user.service"
 import { UserController } from "./user.controller"
@@ -140,7 +140,7 @@ import { userProviders } from "./user.providers"
   providers: [UserService, ...userProviders],
 })
 export class UserModule {}
-```
+``` -->
 
 The above code is consolidating all the User code (controller, service, model) into one place, the _user module_ so it can be exported to the _app module_.
 
@@ -148,7 +148,7 @@ Note that the user _controller_ and _service_ have been generated but are empty 
 
 ## User Service
 
-```ts
+<!-- ```ts
 import { Injectable, Inject } from "@nestjs/common"
 import { USER_REPOSITORY } from "../utils/constants"
 import { User } from "./user.entity"
@@ -168,7 +168,7 @@ export class UserService {
     return await this.userRepository.create<User>(createUser)
   }
 }
-```
+``` -->
 
 Unlike _user service_ which uses the _“Injectable”_ decorator, the _user provider_ we created to use the _User Model_ is not a part of NestJS, therefore has to be injected manually.
 

@@ -203,6 +203,10 @@ const MarkdownWrapper = styled.div`
   /* Code */
   pre {
     margin-bottom: 2rem;
+
+    @media ${props => props.theme.breakpoints.mobile} {
+      width: calc(100vw - 2rem);
+    }
   }
   p {
     code {

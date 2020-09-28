@@ -5,7 +5,7 @@ import { Footer, Navbar } from "../../components"
 
 export const Layout = ({ body, header }) => {
   return (
-    <Container>
+    <Wrapper>
       <NavbarSection>
         <Navbar />
       </NavbarSection>
@@ -21,11 +21,11 @@ export const Layout = ({ body, header }) => {
       <FooterSection>
         <Footer />
       </FooterSection>
-    </Container>
+    </Wrapper>
   )
 }
 
-const Container = styled.div`
+const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr auto;
