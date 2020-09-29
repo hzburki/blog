@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
+import { Socials } from "../index"
 import { Container } from "../../styled-components"
 
 export const Navbar = () => {
@@ -9,9 +10,7 @@ export const Navbar = () => {
       <Wrapper>
         <H1>hzburki</H1>
 
-        <div>
-          
-        </div>
+        <Socials />
       </Wrapper>
     </Container>
   )
@@ -20,9 +19,16 @@ export const Navbar = () => {
 const Wrapper = styled.div`
   display: flex;
   padding: 0.8rem 0;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  @media ${props => props.theme.breakpoints.mobile} {
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
 `
 
 const H1 = styled.h1`
-
+  flex: 1;
 `
