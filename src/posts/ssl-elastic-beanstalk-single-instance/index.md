@@ -2,7 +2,7 @@
 title: Configure SSL Certificate — AWS Elastic Beanstalk (Single Instance)
 published: true
 slug: ssl-elastic-beanstalk-single-instance
-date: October 5, 2019
+date: 2019-10-05
 excerpt: How to configure SSL Certificate on a single-instance Elastic Beanstalk environment using certbot.
 tags: aws, elasticbeanstalk, ssl
 featureImage: ssl-config.png
@@ -10,7 +10,7 @@ featureImage: ssl-config.png
 
 <!-- Imports -->
 
-import { ImageWrapper } from "../../styled-components"
+import { ImageWrapper } from "../../components"
 
 SSL secures data transfer between client and server-side. Not only that it also increases your website’s Google ranking, so it's safe to say that SSL certificates are a _MUST_ have.
 

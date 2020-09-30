@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { BlogCard } from "../index"
-import { Container } from "../../styled-components"
+import { Container } from "../../components"
 
 export const Body = () => {
   const data = useStaticQuery(graphql`
@@ -13,7 +13,7 @@ export const Body = () => {
             frontmatter {
               title
               slug
-              date
+              date(formatString: "MMMM, DD YYYY")
               excerpt
             }
           }

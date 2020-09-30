@@ -2,7 +2,7 @@
 title: How to Serverless — Production Ready APIs on the Go
 published: true
 slug: how-to-serverless
-date: April 16, 2019
+date: 2019-04-16
 excerpt: A guide for creating production ready APIs with serverless framework on any cloud provider, with any language
 tags: #aws, #serverless, #aws #lambda, #rest-api
 featureImage: serverless.jpeg
@@ -10,7 +10,7 @@ featureImage: serverless.jpeg
 
 <!-- imports -->
 
-import { ImageWrapper } from "../../styled-components"
+import { ImageWrapper } from "../../components"
 
 > This is a highly opinionated blog post. Don’t catch on fire if you don’t agree. You have been Warned !!!
 
@@ -100,7 +100,7 @@ The stack also creates an API Gateway, which is linked with our Lambda functions
 
 > Before you start, you will need an AWS account, even if its in the free tier
 >
-> The app we’re building is only for demonstration. It has three entities namely; User, Posts and Comments. I think everyone will be quite clear about the purpose of each entity and their relations among each other. You can find the code repo here.
+> The app we’re building is only for demonstration. It has three entities namely; User, Posts and Comments. I think everyone will be quite clear about the purpose of each entity and their relations among each other. You can find the code repo [here](https://github.com/hzburki/serverless).
 
 1. The first thing you need to do install serverless-cli with
 

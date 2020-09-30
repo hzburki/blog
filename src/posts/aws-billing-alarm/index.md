@@ -2,7 +2,7 @@
 title: Create your first AWS Billing Alarm
 published: true
 slug: aws-billing-alarm
-date: September 2, 2019
+date: 2019-02-02
 excerpt: Setup up a simple billing alarm to keep costs under control before getting started with AWS
 tags: #aws #cloud
 featureImage: aws-billing-alarm.png
@@ -10,7 +10,7 @@ featureImage: aws-billing-alarm.png
 
 <!-- Imports -->
 
-import { ImageWrapper } from "../../styled-components"
+import { ImageWrapper } from "../../components"
 
 Whether you're a novice, just starting or a highly skilled AWS ninja, you need to keep an eye on those pesky AWS bills. Billing is a very important and sometimes confusing part of AWS and if left unchecked can cause a lot of damage.
 

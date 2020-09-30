@@ -3,7 +3,7 @@ import React from "react"
 import Img from "gatsby-image"
 
 import styled from "styled-components"
-import { Container } from "../../styled-components"
+import { Container } from "../../components"
 
 export const BlogTitleSection = ({ data: { title, date, featureImage } }) => {
   return (

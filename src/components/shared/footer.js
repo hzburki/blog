@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Container } from "../../styled-components"
+import { Container } from "../../components"
 
 export const Footer = () => {
   return (

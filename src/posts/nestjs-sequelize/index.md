@@ -2,7 +2,7 @@
 title: NestJS - Getting Started with SequilizeJS
 published: true
 slug: nestjs-sequelize
-date: September 7, 2019
+date: 2019-09-07
 excerpt: A quick tutorial on how to integrate relational databases using SequelizeJS with NestJS.
 tags: #nestjs #sequelizejs #nodejs #webdev
 featureImage: nestjs-sequelize.png
@@ -10,7 +10,7 @@ featureImage: nestjs-sequelize.png
 
 <!-- Imports -->
 
-import { ImageWrapper } from "../../styled-components"
+import { ImageWrapper } from "../../components"
 
 # Preface
 
