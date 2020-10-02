@@ -14,6 +14,7 @@ I wanted to create a place where I could throw all my notes, learnings, experien
 - [ ] Create a separate page for simple notes and learning material
 - [x] Blog styling with `styled-components`
 - [ ] Create & use styled-components theme
+- [x] Style code inside blog (Prism)
 - [ ] Create day & night mode
 - [ ] Create or find a designer to create "hzburki" logo
 - [ ] Create a landing page
