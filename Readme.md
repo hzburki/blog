@@ -20,6 +20,7 @@ I wanted to create a place where I could throw all my notes, learnings, experien
 - [ ] Create a landing page
 - [ ] Create a contact me page
 - [ ] Create a resume/experience/work/skills/tech-stack page
+- [ ] Add searching feature to blog (Algolia OR JS-Search)
 - [ ] Add user comments & likes feature on blog (Disqus)
 - [x] Connect Google Analytics
 - [ ] Create SEO component so the blog is sharable on Social Media
