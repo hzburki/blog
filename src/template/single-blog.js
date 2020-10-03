@@ -18,7 +18,7 @@ export const SingleBlogQuery = graphql`
     mdx(id: { eq: $id }) {
       body
       frontmatter {
-        date
+        date(formatString: "MMMM, DD YYYY")
         excerpt
         slug
         title
