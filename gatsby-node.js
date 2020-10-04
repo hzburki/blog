@@ -2,7 +2,7 @@ exports.createPages = async function({ graphql, actions }) {
   const blogs = await graphql(
   `
     query {
-      allMdx(sort: {fields: frontmatter___date, order: DESC}) {
+      allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {published: {eq: true}}}) {
         edges {
           node {
             frontmatter {

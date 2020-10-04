@@ -27,14 +27,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [{
-          resolve: "gatsby-remark-embed-gist",
-        }],
-      },
-    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
