@@ -1,6 +1,7 @@
 ---
 title: Create your first AWS Billing Alarm
 published: true
+type: blog
 slug: aws-billing-alarm
 date: 2019-09-02
 excerpt: Setup up a simple billing alarm to keep costs under control before getting started with AWS

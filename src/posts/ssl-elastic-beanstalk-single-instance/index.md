@@ -1,6 +1,7 @@
 ---
 title: Configure SSL Certificate — AWS Elastic Beanstalk (Single Instance)
 published: true
+type: blog
 slug: ssl-elastic-beanstalk-single-instance
 date: 2019-10-05
 excerpt: How to configure SSL Certificate on a single-instance Elastic Beanstalk environment using certbot.

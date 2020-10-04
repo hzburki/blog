@@ -1,6 +1,7 @@
 ---
 title: How to Serverless — Production Ready APIs on the Go
 published: true
+type: blog
 slug: how-to-serverless
 date: 2019-04-16
 excerpt: A guide for creating production ready APIs with serverless framework on any cloud provider, with any language

@@ -1,6 +1,7 @@
 ---
 title: 100% height to all divs - Gatsby
 published: true
+type: blog
 slug: gatsby-dev-height
 date: 2019-05-15
 excerpt: Make a sticky footer which occupies bottom of the view if body does not fill the view and gets pushed down if body exceeds the view

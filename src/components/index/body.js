@@ -7,7 +7,12 @@ import { Container } from "../../components"
 export const Body = () => {
   const data = useStaticQuery(graphql`
     query AllBlogsQuery {
-      allMdx(sort: { fields: frontmatter___date, order: DESC }, filter: {frontmatter: {published: {eq: true}}}) {
+      allMdx(
+        sort: { fields: frontmatter___date, order: DESC }
+        filter: {
+          frontmatter: { published: { eq: true }, type: { eq: "blog" } }
+        }
+      ) {
         edges {
           node {
             frontmatter {

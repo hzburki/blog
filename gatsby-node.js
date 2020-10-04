@@ -1,19 +1,25 @@
-exports.createPages = async function({ graphql, actions }) {
+exports.createPages = async function ({ graphql, actions }) {
   const blogs = await graphql(
-  `
-    query {
-      allMdx(sort: {fields: frontmatter___date, order: DESC}, filter: {frontmatter: {published: {eq: true}}}) {
-        edges {
-          node {
-            frontmatter {
-              slug
+    `
+      query {
+        allMdx(
+          sort: { fields: frontmatter___date, order: DESC }
+          filter: {
+            frontmatter: { published: { eq: true }, type: { eq: "blog" } }
+          }
+        ) {
+          edges {
+            node {
+              frontmatter {
+                slug
+              }
+              id
             }
-            id
           }
         }
       }
-    }
-  `)
+    `
+  )
 
   // Create blog posts pages
   blogs.data.allMdx.edges.forEach(edge => {
@@ -23,7 +29,7 @@ exports.createPages = async function({ graphql, actions }) {
     actions.createPage({
       path: slug,
       component: require.resolve("./src/template/single-blog.js"),
-      context: { id }
+      context: { id },
     })
-  });
+  })
 }
