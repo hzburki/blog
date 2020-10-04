@@ -1,10 +1,10 @@
 ---
 title: Using multiple databases - NodeJS and SequelizeJS
-published: true
+published: false
 slug: multiple-databases-nodejs
 date: 2020-10-04
 excerpt: A guide for creating production ready APIs with serverless framework on any cloud provider, with any language
-tags: #nodejs, #sequelizejs, #rest-api
+tags: ["NodeJS", "SequelizeJS", "Rest API", "Database"]
 # featureImage: serverless.jpeg
 ---
 

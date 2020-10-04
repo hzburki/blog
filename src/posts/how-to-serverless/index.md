@@ -4,7 +4,8 @@ published: true
 slug: how-to-serverless
 date: 2019-04-16
 excerpt: A guide for creating production ready APIs with serverless framework on any cloud provider, with any language
-tags: #aws, #serverless, #aws #lambda, #rest-api
+tags:
+  ["AWS", "Serverless Framework", "Lambda Framework", "Rest API", "Serverless"]
 featureImage: serverless.jpeg
 ---
 
