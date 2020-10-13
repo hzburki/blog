@@ -52,3 +52,7 @@ After this you should see **EC2 Amazon Linux 2 AMI** being displayed in your ter
 ---
 
 ## SSH using Windows
+
+---
+
+## EC2 Instance Connect
