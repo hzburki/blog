@@ -1,6 +1,6 @@
 ---
 title: Identity Access Management (IAM)
-published: true
+published: false
 type: note
 slug: iam
 date: 2020-10-05

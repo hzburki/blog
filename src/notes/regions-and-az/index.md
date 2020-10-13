@@ -1,6 +1,6 @@
 ---
 title: Regions and Availability Zones (AZ)s
-published: true
+published: false
 type: note
 slug: regions-and-az
 date: 2020-10-01
