@@ -4,7 +4,7 @@ published: false
 type: note
 slug: ec2-ssh
 date: 2020-10-05
-tags: ["ec2"]
+tags: ["ec2", "creation", "create"]
 ---
 
 # Create your first EC2 Instance
