@@ -1,9 +1,9 @@
 ---
-title: Create your first EC2 Instance
+title: EC2 User Data
 published: false
 type: note
-slug: ec2-ssh
-date: 2020-10-05
+slug: ec2-user-data
+date: 2020-12-13
 tags: ["ec2", "user-data"]
 ---
 

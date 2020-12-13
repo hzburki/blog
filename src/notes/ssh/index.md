@@ -3,7 +3,7 @@ title: SSH into your EC2 Instance
 published: false
 type: note
 slug: ec2-ssh
-date: 2020-10-05
+date: 2020-10-07
 tags: ["ec2", "ssh"]
 ---
 
@@ -21,7 +21,7 @@ You need two things to SSH into a remote machine.
 
 ---
 
-## SSH using Mac
+## **SSH using Mac**
 
 1. Take you `.pem` key (file) and place it somewhere safe. For me I place it in my `.ssh` directory but you can place it on your `Desktop` directory too.
 
@@ -51,7 +51,7 @@ After this you should see **EC2 Amazon Linux 2 AMI** being displayed in your ter
 
 ---
 
-## SSH using Windows
+## **SSH using Windows**
 
 To _ssh_ into an EC2 instance from a Windows machine we are going to use a free tool called _Putty_. You can download it [here](https://www.putty.org/).
 
@@ -69,11 +69,11 @@ We are almost ready. The only thing left to do is attach the **.ppk** file we ge
 
 Now you are ready and done. Just press **Open** and you should SSH into the EC2 instance.
 
-## Window 10
+## **Window 10**
 
 For Window 10 Microsoft finally added SSH support. To check if you have SSH avaiable open the powershell, type `ssh` and press enter. If the terminal does not say `command ssh not found` then you are good to go. Just SSH into the EC2 instance just like on Mac or Linux (see Mac/Linux sections above).
 
-### Permission Issues ??
+### **Permission Issues ??**
 
 This is a pretty common problem so don't worry :P what's happening is that you're private key is not so private. Other users on the machine may have access to it or the file permission may allow to update it, etc.
 
@@ -89,10 +89,30 @@ Before before closing the properties pop up make sure you have full control of t
 
 ---
 
-## EC2 Instance Connect
+## **EC2 Instance Connect**
 
-This is a new feature from the AWS. It is only available for Amazon Linux 2 AMIs. EC2 Instance Connect is a browser based SSH connection which renders puTTy, pem files, obselete.
+This is a new feature from the AWS. It is only available for **Amazon Linux 2** AMIs. EC2 Instance Connect is a browser based SSH connection which renders puTTy, pem files, obselete.
 
 To use EC2 Instance Connect just go to the AWS console > EC2 Dashboard > Select your instance > Press _Connect_. You'll see 3 radio buttons, choose the **EC2 Instance Connect** option. Enter your instance username, which is **ec2-user** and press Connect and that's it.
 
 You don't have to worry about any keys. AWS downloads a temporary key and handles all the steps mentioned above for you.
+
+--
+
+## **Beginner Mistakes**
+
+1. **Connection Timeout**
+
+   This is probably a Security Group issue. Ensure that your Security Group has port 22 open for inbound traffic from anywhere and is correctly assigned to your EC2 instance.
+
+   > 🚨 **Note:** Most of the times, timeouts (not just for SSH) are related either to Security Groups or a Firewall.
+
+2. **Permission denied**
+
+   This can usually mean one of 2 things;
+
+   1. You are using the wrong security key or not using a security key. Please make sure that your EC2 instance configuration has the correct key assigned to it.
+
+   2. Wrong user! Make sure you have started an EC2 instance, and make sure you're using the user **ec2-user**. The username cannot be different!
+
+      This is something you specify when doing ec2-user@<public-ip> (for example: ec2-user@35.180.242.162) in your SSH command or Putty configuration.

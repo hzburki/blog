@@ -1,10 +1,10 @@
 ---
-title: Security Groups
+title: Public IPs, Private IPs, Elastic IPs
 published: false
 type: note
-slug: security-groups
-date: 2020-11-06
-tags: ["ipv4", "ipv6", "elastic-ip", "ip"]
+slug: ip-public-private-elastic
+date: 2020-12-08
+tags: ["ipv4", "ipv6", "elastic-ip", "ip", "ec2", "public-ip", "private-ip"]
 ---
 
 # Public IPs, Private IPs, Elastic IPs
