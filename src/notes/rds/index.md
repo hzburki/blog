@@ -3,7 +3,7 @@ title: Relation Database Service (RDS)
 published: false
 type: note
 slug: rds
-date: 2020-10-05
+date: 2021-01-12
 tags: ["rds", "relational-database-service", "read-replicas", "rds-security"]
 ---
 
